@@ -7,7 +7,6 @@ import (
   "net"
   "time"
   "log"
-  "fmt"
   "os"
 )
 func HomeHandler(w http.ResponseWriter, r *http.Request) {
