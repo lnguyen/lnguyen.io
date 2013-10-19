@@ -15,14 +15,9 @@ func HomeHandler(w http.ResponseWriter, r *http.Request) {
   return
 }
 
-func TestHandler(w http.ResponseWriter, r *http.Request) {
-  fmt.Fprint(w,`{ "error": "Unauthorized access" }`)
-  return
-}
 func main() {
   r := mux.NewRouter()
   r.HandleFunc("/", HomeHandler)
-  r.HandleFunc("/test", TestHandler)
 
   http.HandleFunc("/assets/", func(w http.ResponseWriter, r *http.Request) {
     http.ServeFile(w, r, r.URL.Path[1:])
