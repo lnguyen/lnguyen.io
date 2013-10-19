@@ -7,6 +7,7 @@ import (
   "net"
   "time"
   "log"
+  "os"
 )
 func HomeHandler(w http.ResponseWriter, r *http.Request) {
   http.ServeFile(w, r, "index.html")
@@ -59,6 +60,7 @@ func main() {
   if err := goagain.AwaitSignals(l); nil != err {
     log.Fatalln(err)
   }
+  log.Println(os.Args[0])
 
   // Do whatever's necessary to ensure a graceful exit like waiting for
   // goroutines to terminate or a channel to become closed.
